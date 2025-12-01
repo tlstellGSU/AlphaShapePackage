@@ -1,5 +1,5 @@
 #' Alpha Shape Utilities
-#' 
+#'
 #' @name alpha_shape
 #' @rdname alpha_shape
 #' @importFrom dbscan dbscan kNNdist
@@ -7,12 +7,12 @@
 NULL
 
 #' Circumcircle
-#' 
+#'
 #' Function to calculate the circumcircle of a triangle defined by points p1, p2, p3
 #' @param p1 A vector of length 2 (x, y) coordinates of the first point.
 #' @param p2 A vector of length 2 (x, y) coordinates of the second point.
 #' @param p3 A vector of length 2 (x, y) coordinates of the third point.
-#' 
+#'
 #' @return A list with elements 'center' (vector of length 2) and 'r' (radius).
 circumcircle <- function(p1, p2, p3) {
     A <- p2 - p1
@@ -31,12 +31,12 @@ circumcircle <- function(p1, p2, p3) {
 }
 
 #' point_in_circle
-#' 
+#'
 #' Function to check if a point is inside a circle
 #' @param p A vector of length 2 (x, y) coordinates of the point.
 #' @param center A vector of length 2 (x, y) coordinates of the circle center.
 #' @param r Radius of the circle.
-#' 
+#'
 #' @return TRUE if the point is inside the circle, FALSE otherwise.
 point_in_circle <- function(p, center, r) {
     # Function to check if a point is inside a circle
@@ -47,13 +47,13 @@ point_in_circle <- function(p, center, r) {
 }
 
 #' circumsphere
-#' 
+#'
 #' Function to calculate the circumsphere of a tetrahedron defined by points p1, p2, p3, p4
 #' @param p1 A vector of length 3 (x, y, z) coordinates of the first point.
 #' @param p2 A vector of length 3 (x, y, z) coordinates of the second point.
 #' @param p3 A vector of length 3 (x, y, z) coordinates of the third point.
 #' @param p4 A vector of length 3 (x, y, z) coordinates of the fourth point.
-#' 
+#'
 #' @return A list with elements 'center' (vector of length 3) and 'r' (radius).
 circumsphere <- function(p1, p2, p3, p4) {
     # Function to calculate the circumsphere of a tetrahedron defined by points p1, p2, p3, p4
@@ -68,12 +68,12 @@ circumsphere <- function(p1, p2, p3, p4) {
 }
 
 #' point_in_sphere
-#' 
+#'
 #' Function to check if a point is inside a sphere
 #' @param p A vector of length 3 (x, y, z) coordinates of the point.
 #' @param center A vector of length 3 (x, y, z) coordinates of the sphere center.
 #' @param r Radius of the sphere.
-#' 
+#'
 #' @return TRUE if the point is inside the sphere, FALSE otherwise.
 point_in_sphere <- function(p, center, r) {
     # Function to check if a point is inside a sphere
@@ -84,7 +84,7 @@ point_in_sphere <- function(p, center, r) {
 }
 
 #' Delaunay triangulation
-#' 
+#'
 #' Performs Delaunay triangulation for 2D points and Delaunay tetrahedralization for 3D points using the Bowyer-Watson algorithm.
 #' @param points A numeric matrix of points (n x 2 for 2D, n x 3 for 3D).
 #' @param dim Dimension of the points (2 or 3).
@@ -270,7 +270,7 @@ deluanay_triangulation <- function(points, dim = 2) {
 }
 
 #' polygon_area
-#' 
+#'
 #' Calculate the area of a polygon given its vertices
 #' @param polygon A matrix of vertices (n x 2) representing the polygon.
 #' @return The area of the polygon.
@@ -293,7 +293,7 @@ polygon_area <- function(polygon) {
 }
 
 #' edge_length
-#' 
+#'
 #' Calculate the length of an edge given its two endpoints
 #' @param p1 A numeric vector representing the first point (x, y).
 #' @param p2 A numeric vector representing the second point (x, y).
@@ -303,7 +303,7 @@ edge_length <- function(p1, p2) {
 }
 
 #' triangle_area
-#' 
+#'
 #' Calculate the area of a triangle given its three vertices
 #' @param p1 A numeric vector representing the first point (x, y).
 #' @param p2 A numeric vector representing the second point (x, y).
@@ -319,7 +319,7 @@ triangle_area <- function(p1, p2, p3) {
 }
 
 #' tetrahedron_volume
-#' 
+#'
 #' Calculate the volume of a tetrahedron given its four vertices
 #' @param p1 A numeric vector representing the first point (x, y, z).
 #' @param p2 A numeric vector representing the second point (x, y, z).
@@ -338,7 +338,7 @@ tetrahedron_volume <- function(p1, p2, p3, p4) {
 }
 
 #' tetrahedron_surface_area
-#' 
+#'
 #' Calculate the surface area of a tetrahedron given its four vertices
 #' @param p1 A numeric vector representing the first point (x, y, z).
 #' @param p2 A numeric vector representing the second point (x, y, z).
@@ -355,7 +355,7 @@ tetrahedron_surface_area <- function(p1, p2, p3, p4) {
 }
 
 #' edges_to_loops
-#' 
+#'
 #' Convert boundary edges to ordered loops (polygons)
 #' @param boundary_edges A list of numeric vectors length 2 (vertex indices).
 #' @param points A matrix of point coordinates (n x 2).
@@ -452,7 +452,7 @@ edges_to_loops <- function(boundary_edges, points) {
 }
 
 #' build_adj_my
-#' 
+#'
 #' build adjacency list from edges
 #' @param edges A list of numeric vectors length 2 (vertex indices).
 #' @return A named list where each name is a vertex and each element is a vector of adjacent vertices.
@@ -473,7 +473,7 @@ build_adj_my <- function(edges) {
 }
 
 #' find_cycles_my
-#' 
+#'
 #' find cycles in undirected graph
 #' @param adj A named list where each name is a vertex and each element is a
 #' vector of adjacent vertices.
@@ -524,7 +524,7 @@ find_cycles_my <- function(adj) {
 }
 
 #' auto_epsilon
-#' 
+#'
 #' Estimate epsilon for DBSCAN using k-NN distance distribution
 #' @param points A numeric matrix of points (n x d).
 #' @param min_points The number of nearest neighbors to consider (k).
@@ -541,7 +541,7 @@ auto_epsilon <- function(points, min_points = 5, quantile_value = 0.90) {
 }
 
 #' fix_orientation
-#' 
+#'
 #' Fix polygon orientation
 #' @param mat A matrix of polygon vertices (n x 2).
 #' @param clockwise Logical indicating if the polygon should be oriented clockwise.
@@ -616,7 +616,7 @@ dbscan_filter <- function(points, min_points = 5, epsilon = NULL,
 }
 
 #' alpha_shape_2D
-#' 
+#'
 #' Compute the 2D alpha shape of a set of points
 #' @param points A numeric matrix of points (n x 2).
 #' @param alpha The alpha parameter controlling the shape detail.
@@ -625,7 +625,7 @@ dbscan_filter <- function(points, min_points = 5, epsilon = NULL,
 #' @return A list containing:
 #' \item{polygons}{A list of polygons representing the alpha shape boundary. Each polygon is a matrix (m x 2) of coordinates.}
 #' \item{points}{The filtered points used to compute the alpha shape.}
-#' 
+#'
 #' @export
 alpha_shape_2D <- function(points, alpha, CL = 1.0, sampling_fraction = 0.95) {
     points <- as.matrix(points)
