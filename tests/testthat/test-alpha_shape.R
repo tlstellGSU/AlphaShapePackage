@@ -1,3 +1,5 @@
+#install.packages("testthat", repos = "https://cloud.r-project.org")
+
 library(testthat)
 
 test_that("edge_length and triangle_area compute expected values", {
